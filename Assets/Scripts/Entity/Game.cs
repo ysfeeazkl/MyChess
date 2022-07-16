@@ -9,7 +9,7 @@ namespace Assets.Scripts.Entity
     public class Game
     {
         public bool order { get; set; }
-        public List<object> GameObjectList { get; set; }
-        public List<object> ChessTableSquare { get; set; } 
+        public List<string> GameObjectList { get; set; }
+        public List<string> ChessTableSquareName { get; set; } 
     }
 }

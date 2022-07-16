@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Assets.Scripts.Entity
 {
-    public class Piece
+    public class Piece : MonoBehaviour
     {
-        public List<object> DangerSquare { get; set; }
-        public object MainSquare { get; set; }
+        public List<GameObject> DangerSquare { get; set; }
+        public string MainSquareName { get; set; }
         public string PieceType { get; set; }
     }
 }
