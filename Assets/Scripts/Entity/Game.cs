@@ -11,5 +11,6 @@ namespace Assets.Scripts.Entity
         public bool order { get; set; }
         public List<string> GameObjectList { get; set; }
         public List<string> ChessTableSquareName { get; set; } 
+        public string SelectPieceName { get; set; }
     }
 }

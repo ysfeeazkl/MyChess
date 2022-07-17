@@ -9,13 +9,13 @@ public class CreateTable : MonoBehaviour
     public Sprite[] chessPiece;
     public GameObject[] chessPieceObject;
 
-    List<GameObject> chessPieces;
+   public List<GameObject> ChessPieces;
 
 
 
 
-    public static Game Game;
-    public static List<GameObject> SquareList;
+ 
+    public  List<GameObject> SquareList;
 
     char[] letter = new char[] 
     {
@@ -33,9 +33,8 @@ public class CreateTable : MonoBehaviour
     bool control = false;
     void Start()
     {
-        Game = new();
         SquareList = new List<GameObject>();
-        chessPieces = new List<GameObject>();
+        ChessPieces = new List<GameObject>();
         control = true;
     }
 
@@ -56,7 +55,7 @@ public class CreateTable : MonoBehaviour
         {
             GameObject newPiece;
             newPiece = Instantiate(Piece, new Vector3(0, 0, 0), Quaternion.identity);
-            chessPieces.Add(newPiece);
+            ChessPieces.Add(newPiece);
         }
 
 
@@ -68,7 +67,7 @@ public class CreateTable : MonoBehaviour
                 {
                     GameObject newSquare;
                     newSquare = Instantiate(black, new Vector3(j * 0.8f, i * 0.8f, 0), Quaternion.identity);
-                    newSquare.name = $"{letter[j-1]}{i}";
+                    newSquare.name = $"{letter[j - 1]},{i}";
                     newSquare.GetComponent<Square>().Name = newSquare.name;
 
                     //var sprite = newSquare.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite;
@@ -78,8 +77,8 @@ public class CreateTable : MonoBehaviour
                         //sprite = chessPiece[j - 1];
                         //newSquare.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = chessPiece[j - 1];
                         //chessPieces[j - 1].transform.SetParent(newSquare.transform, false);
-                        chessPieces[j - 1].transform.Translate(new Vector3(newSquare.transform.position.x, newSquare.transform.position.y));
-                        chessPieces[j -1].transform.SetParent(newSquare.transform);
+                        ChessPieces[j - 1].transform.Translate(new Vector3(newSquare.transform.position.x, newSquare.transform.position.y));
+                        ChessPieces[j -1].transform.SetParent(newSquare.transform);
                         //chessPieces[j - 1].GetComponent<Piece>().MainSquareName = newSquare.name;
 
                     }
@@ -89,8 +88,8 @@ public class CreateTable : MonoBehaviour
                         //chessPieces[j + 7].transform.SetParent(newSquare.transform, false);
 
                         //sprite = chessPiece[8];
-                        chessPieces[j + 7].transform.Translate(new Vector3(newSquare.transform.position.x, newSquare.transform.position.y));
-                        chessPieces[j + 7].transform.SetParent(newSquare.transform);
+                        ChessPieces[j + 7].transform.Translate(new Vector3(newSquare.transform.position.x, newSquare.transform.position.y));
+                        ChessPieces[j + 7].transform.SetParent(newSquare.transform);
                         //chessPieces[j + 7].GetComponent<Piece>().MainSquareName = newSquare.name;
                     }
                     else if (i == 8)
@@ -99,16 +98,16 @@ public class CreateTable : MonoBehaviour
 
                         //chessPieces[j + 15].transform.SetParent(newSquare.transform, false);
 
-                        chessPieces[j + 15].transform.Translate(new Vector3(newSquare.transform.position.x, newSquare.transform.position.y));
-                        chessPieces[j + 15].transform.SetParent(newSquare.transform);
+                        ChessPieces[j + 15].transform.Translate(new Vector3(newSquare.transform.position.x, newSquare.transform.position.y));
+                        ChessPieces[j + 15].transform.SetParent(newSquare.transform);
                         //chessPieces[j + 15].GetComponent<Piece>().MainSquareName = newSquare.name;
                     }
                     else if (i == 7)
                     {
                         //newSquare.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = chessPiece[(j-1)+10];
 
-                        chessPieces[j + 23].transform.Translate(new Vector3(newSquare.transform.position.x, newSquare.transform.position.y));
-                        chessPieces[j + 23].transform.SetParent(newSquare.transform);
+                        ChessPieces[j + 23].transform.Translate(new Vector3(newSquare.transform.position.x, newSquare.transform.position.y));
+                        ChessPieces[j + 23].transform.SetParent(newSquare.transform);
 
                         //chessPieces[j + 23].GetComponent<Piece>().MainSquareName = newSquare.name;
                     }
@@ -118,7 +117,7 @@ public class CreateTable : MonoBehaviour
                 {
                     GameObject newSquare;
                     newSquare = Instantiate(white, new Vector3(j * 0.8f, i * 0.8f, 0), Quaternion.identity);
-                    newSquare.name = $"{letter[j-1]}{i}";
+                    newSquare.name = $"{letter[j-1]},{i}";
                     newSquare.GetComponent<Square>().Name = newSquare.name;
 
                     if (i == 1)
@@ -126,8 +125,8 @@ public class CreateTable : MonoBehaviour
                         //sprite = chessPiece[j - 1];
                         //newSquare.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = chessPiece[j - 1];
                         //chessPieces[j - 1].transform.SetParent(newSquare.transform, false);
-                        chessPieces[j - 1].transform.Translate(new Vector3(newSquare.transform.position.x, newSquare.transform.position.y));
-                        chessPieces[j - 1].transform.SetParent(newSquare.transform);
+                        ChessPieces[j - 1].transform.Translate(new Vector3(newSquare.transform.position.x, newSquare.transform.position.y));
+                        ChessPieces[j - 1].transform.SetParent(newSquare.transform);
                         //chessPieces[j - 1].GetComponent<Piece>().MainSquareName = newSquare.name;
 
                     }
@@ -137,8 +136,8 @@ public class CreateTable : MonoBehaviour
                         //chessPieces[j + 7].transform.SetParent(newSquare.transform, false);
 
                         //sprite = chessPiece[8];
-                        chessPieces[j + 7].transform.Translate(new Vector3(newSquare.transform.position.x, newSquare.transform.position.y));
-                        chessPieces[j + 7].transform.SetParent(newSquare.transform);
+                        ChessPieces[j + 7].transform.Translate(new Vector3(newSquare.transform.position.x, newSquare.transform.position.y));
+                        ChessPieces[j + 7].transform.SetParent(newSquare.transform);
                         //chessPieces[j + 7].GetComponent<Piece>().MainSquareName = newSquare.name;
                     }
                     else if (i == 8)
@@ -147,16 +146,16 @@ public class CreateTable : MonoBehaviour
 
                         //chessPieces[j + 15].transform.SetParent(newSquare.transform, false);
 
-                        chessPieces[j + 15].transform.Translate(new Vector3(newSquare.transform.position.x, newSquare.transform.position.y));
-                        chessPieces[j + 15].transform.SetParent(newSquare.transform);
+                        ChessPieces[j + 15].transform.Translate(new Vector3(newSquare.transform.position.x, newSquare.transform.position.y));
+                        ChessPieces[j + 15].transform.SetParent(newSquare.transform);
                         //chessPieces[j + 15].GetComponent<Piece>().MainSquareName = newSquare.name;
                     }
                     else if (i == 7)
                     {
                         //newSquare.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = chessPiece[(j-1)+10];
 
-                        chessPieces[j + 23].transform.Translate(new Vector3(newSquare.transform.position.x, newSquare.transform.position.y));
-                        chessPieces[j + 23].transform.SetParent(newSquare.transform);
+                        ChessPieces[j + 23].transform.Translate(new Vector3(newSquare.transform.position.x, newSquare.transform.position.y));
+                        ChessPieces[j + 23].transform.SetParent(newSquare.transform);
 
                         //chessPieces[j + 23].GetComponent<Piece>().MainSquareName = newSquare.name;
                     }
